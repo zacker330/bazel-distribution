@@ -30,10 +30,10 @@ sys.path.extend(map(os.path.abspath, glob.glob('external/*/*')))
 import twine.commands.upload
 
 parser = argparse.ArgumentParser()
-parser.add_argument('repo_type')
-args = parser.parse_args()
+# parser.add_argument('repo_type')
+# args = parser.parse_args()
 
-repo_type_key = args.repo_type
+repo_type_key = "release"
 
 pip_repositories = {
     'snapshot' : "{snapshot}",
