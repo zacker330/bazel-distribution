@@ -67,11 +67,11 @@ for f in args.files:
             break
     try:
         e = os.path.join(pkg_dir, os.path.dirname(fn))
-        os.makedirs(e)
+        os.makedirs(pkg_dir)
     except OSError:
         # directory already exists
         pass
-    shutil.copy(f, os.path.join(pkg_dir, fn))
+    shutil.copy(f, pkg_dir)
 
 setup_py = os.path.join(pkg_dir, 'setup.py')
 readme = os.path.join(pkg_dir, 'README.md')
