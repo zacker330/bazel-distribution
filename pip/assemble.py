@@ -59,6 +59,7 @@ pkg_dir = tempfile.mkdtemp()
 
 
 for f in args.files:
+    #""
     fn = f
     for _imp in args.imports:
         match = _imp.match(fn)
@@ -66,13 +67,15 @@ for f in args.files:
             fn = match.group('fn')
             break
     try:
-        e = os.path.join(pkg_dir, os.path.dirname(fn))
+        # creating aiic-0.0.0/bazel-out/darwin-fastbuild
+        # e = os.path.join(pkg_dir, os.path.dirname(fn))
+        e = os.path.join(pkg_dir, "abc")
         os.makedirs(e)
     except OSError:
         # directory already exists
         pass
-    shutil.copy(f, pkg_dir)
-    # shutil.copy(f, os.path.join(pkg_dir, fn))
+    # shutil.copy(f, pkg_dir)
+    shutil.copy(f, os.path.join(pkg_dir, "abc", os.path.basename(fn)))
 
 setup_py = os.path.join(pkg_dir, 'setup.py')
 readme = os.path.join(pkg_dir, 'README.md')
