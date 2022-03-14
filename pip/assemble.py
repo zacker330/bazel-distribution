@@ -69,13 +69,13 @@ for f in args.files:
     try:
         # creating aiic-0.0.0/bazel-out/darwin-fastbuild
         # e = os.path.join(pkg_dir, os.path.dirname(fn))
-        e = os.path.join(pkg_dir, "abc")
+        e = os.path.join(pkg_dir,  os.path.basename(fn))
         os.makedirs(e)
     except OSError:
         # directory already exists
         pass
     # shutil.copy(f, pkg_dir)
-    shutil.copy(f, os.path.join(pkg_dir, "abc", os.path.basename(fn)))
+    shutil.copy(f, pkg_dir)
 
 setup_py = os.path.join(pkg_dir, 'setup.py')
 readme = os.path.join(pkg_dir, 'README.md')
